@@ -28,5 +28,10 @@ public class TetForm {
                 Dish::getCalories,
                 Integer::sum)));
         System.out.println(max);
+
+        int asInt = Dish.menu.stream().mapToInt(Dish::getCalories).reduce(Integer::sum).getAsInt();
+        System.out.println(asInt);
+        int sum = Dish.menu.stream().mapToInt(Dish::getCalories).sum();
+        System.out.println(sum);
     }
 }
