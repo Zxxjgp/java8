@@ -1,8 +1,18 @@
 package com.example.demo.java8.chap5;
+
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
 public  class Trader{
 	
 	private String name;
 	private String city;
+
+	private int points;
+	private int qu;
+
 
 	public Trader(String n, String c){
 		this.name = n;
@@ -21,6 +31,7 @@ public  class Trader{
 		this.city = newCity;
 	}
 
+	@Override
 	public String toString(){
 		return "Trader:"+this.name + " in " + this.city;
 	}
