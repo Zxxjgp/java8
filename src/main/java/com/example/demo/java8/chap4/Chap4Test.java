@@ -1,13 +1,8 @@
 package com.example.demo.java8.chap4;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
-import static java.util.stream.Collectors.toList;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * @author jiaoguanping
@@ -19,6 +14,27 @@ public class Chap4Test {
     public static void main(String[] args) {
 
 
-        List<String> words = Arrays.asList("Hello", "World");
+        List<Integer> words = Arrays.asList(4, 6,30,10,20);
+
+        int i = words.stream().reduce(100, (x, y) -> x + y);
+        System.out.println(i);
+
+
+        words.stream().forEach( x -> System.out.println(x.getClass().getName()+"====="));
+        Dish g = new  Dish(){
+
+            public void run(){
+                System.out.println(88);
+            }
+        };
+        Runnable r2 = () -> System.out.println("Hello");
+
+
+        String str = "";
+
+        if ( !"".equals(str)) {
+            System.out.println(444);
+        }
+
     }
 }

@@ -1,21 +1,22 @@
 package com.example.demo.java8.chap4;
 
+import com.example.demo.java8.chap5.CaloricLevel;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.util.Arrays;
 import java.util.List;
-
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Dish {
 
-    private final String name;
-    private final boolean vegetarian;
-    private final int calories;
-    private final Type type;
+    private  String name;
+    private  boolean vegetarian;
+    private  int calories;
+    private  Type type;
 
-    public Dish(String name, boolean vegetarian, int calories, Type type) {
-        this.name = name;
-        this.vegetarian = vegetarian;
-        this.calories = calories;
-        this.type = type;
-    }
 
     public String getName() {
         return name;
@@ -50,4 +51,10 @@ public class Dish {
                            new Dish("pizza", true, 550, Dish.Type.OTHER),
                            new Dish("prawns", false, 400, Dish.Type.FISH),
                            new Dish("salmon", false, 450, Dish.Type.FISH));
+
+    public CaloricLevel getCaloricLevel(){
+        if (this.getCalories() <= 400) return CaloricLevel.DIET;
+        else if (this.getCalories() <= 700) return CaloricLevel.NORMAL;
+        else return CaloricLevel.FAT;
+    }
 }

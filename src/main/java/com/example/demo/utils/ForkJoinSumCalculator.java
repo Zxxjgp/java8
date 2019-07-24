@@ -34,7 +34,8 @@ public class ForkJoinSumCalculator extends java.util.concurrent.RecursiveTask<Lo
         leftTask.fork();
         ForkJoinSumCalculator rightTask =
                 new ForkJoinSumCalculator(numbers, start + length / 2, end);
-        Long rightResult = rightTask.compute();
+        rightTask.fork();
+        Long rightResult = rightTask.join();
         Long leftResult = leftTask.join();
         return leftResult + rightResult;
     }
@@ -49,7 +50,14 @@ public class ForkJoinSumCalculator extends java.util.concurrent.RecursiveTask<Lo
 
     public static long forkJoinSum(long n) {
         long[] numbers = LongStream.rangeClosed(1, n).toArray();
+        long[] nnn = LongStream.rangeClosed(0,n).toArray();
         ForkJoinTask<Long> task = new ForkJoinSumCalculator(numbers);
         return new ForkJoinPool().invoke(task);
+    }
+
+    public static void main(String[] args) {
+        String str = "abcd";
+        char c = str.charAt(2);
+        System.out.println(c);
     }
 }
