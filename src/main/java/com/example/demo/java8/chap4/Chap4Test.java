@@ -32,7 +32,7 @@ public class Chap4Test {
 
         String str = "";
 
-        if ( !"".equals(str)) {
+        if ( 0 > 0 ) {
             System.out.println(444);
         }
 

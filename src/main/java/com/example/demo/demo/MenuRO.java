@@ -20,4 +20,8 @@ public class MenuRO implements Serializable {
 
     //菜单的等级
     private Integer lever;
+
+    public static void main(String[] args) {
+        System.out.println(System.currentTimeMillis());
+    }
 }

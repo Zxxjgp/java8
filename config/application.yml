@@ -1,7 +1,7 @@
+
+
 spring:
-  port: 1008
-  profile:
-    active: dev
+  port: 1009
   #druid
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
