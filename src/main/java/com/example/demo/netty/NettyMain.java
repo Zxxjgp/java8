@@ -8,6 +8,6 @@ package com.example.demo.netty;
  */
 public class NettyMain {
     public static void main(String[] args) {
-
+        System.out.println("netty");
     }
 }
